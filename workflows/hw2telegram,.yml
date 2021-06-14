@@ -6,10 +6,10 @@ on:
       outputsMode: combine
 jobs:
   telegram:
-    name: Send a telegram message
+    name: Send telegram message for hackernews portal
     runs-on: ubuntu-latest
     steps:
-      - name: Send a telegram message
+      - name: Send telegram message for hackernews portal
         uses: appleboy/telegram-action@v0.0.8
         with:
           to: ${{ secrets.TELEGRAM_TO }}
