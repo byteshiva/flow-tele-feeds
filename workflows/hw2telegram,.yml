@@ -1,4 +1,4 @@
-name: Send a telegram message when new hot subreddit
+name: Send a telegram message based on periodic polling on hackernews site
 on:
   rss:
     url: https://hnrss.org/newest?points=300&count=3
