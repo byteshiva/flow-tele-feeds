@@ -14,6 +14,18 @@ jobs:
           bitlyToken: ${{ secrets.BITLY_TOKEN }}
           longURL: ${{on.rss.outputs.link}}
 
+      - name: Print Outputs
+         env:
+           title: ${{on.rss.outputs.title}}
+           contentSnippet: ${{on.rss.outputs.contentSnippet}}
+           link: ${{on.rss.outputs.link}}
+           short: ${{steps.urlshortgen.outputs.shortURL}}
+         run: |
+           echo title: $title
+           echo contentSnippet: $contentSnippet
+           echo link: $link
+           echo short: $short
+
       - name: Send telegram message - hackernews
         uses: appleboy/telegram-action@v0.1.1
         with:
