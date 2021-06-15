@@ -7,13 +7,6 @@ jobs:
     name: Send telegram message - hackernews 
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Set up Python 3.9
-      - uses: actions/setup-python@v2
-        with:
-          python-version: '3.9'
-
       - name: url short generator bit.ly
         id: urlshortgen
         uses: kok-xiong/bitly-shortener-action@master
