@@ -1,6 +1,6 @@
 on:
   rss:
-    url: https://news.ycombinator.com/rss
+    url: https://hnrss.org/newest?count=5
 jobs:
   request:
     name: Make a HTTP Request
