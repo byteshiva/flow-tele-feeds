@@ -1,8 +1,6 @@
 on:
   rss:
     url: https://news.ycombinator.com/rss
-    config:
-      outputsMode: combine
 jobs:
   request:
     name: Make a HTTP Request
