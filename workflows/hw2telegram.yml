@@ -14,5 +14,4 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: |
-		The hw link ${{ on.rss.outputs.link }} <br> ${{ on.rss.outputs.title }} <<<${{ on.rss.outputs.contentSnippet }}>>>
+          message: The hw link "${{ on.rss.outputs.link }}" <br> "${{ on.rss.outputs.title }}" <<<"${{ on.rss.outputs.contentSnippet }}">>>
