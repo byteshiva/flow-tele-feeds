@@ -10,8 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Send telegram message for hackernews portal
-        uses: appleboy/telegram-action@v0.0.8
+        uses: appleboy/telegram-action@v0.1.1
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: ${{ on.rss.outputs.link }} ${{ on.rss.outputs.title }} <<<${{ on.rss.outputs.contentSnippet }}>>>
+          message: |
+		The hw link ${{ on.rss.outputs.link }} <br> ${{ on.rss.outputs.title }} <<<${{ on.rss.outputs.contentSnippet }}>>>
