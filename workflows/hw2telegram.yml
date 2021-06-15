@@ -1,13 +1,13 @@
-name: Send a telegram message based on periodic polling on hackernews site
+name: Send telegram message - hackernews site
 on:
   rss:
     url: https://news.ycombinator.com/rss
 jobs:
   telegram:
-    name: Send telegram message for hackernews portal
+    name: Send telegram message - hackernews 
     runs-on: ubuntu-latest
     steps:
-      - name: Send telegram message for hackernews portal
+      - name: Send telegram message - hackernews
         uses: appleboy/telegram-action@v0.1.1
         with:
           to: ${{ secrets.TELEGRAM_TO }}
