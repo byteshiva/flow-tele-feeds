@@ -2,8 +2,6 @@ name: Send telegram message - hackernews site
 on:
   rss:
     url: https://hnrss.org/newest?count=5
-    config:
-      outputsMode: combine
 jobs:
   telegram:
     name: Send telegram message - hackernews 
