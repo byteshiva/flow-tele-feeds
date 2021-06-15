@@ -1,6 +1,8 @@
 on:
   rss:
-    url: https://hnrss.org/newest?points=300&count=3
+    url: https://news.ycombinator.com/rss
+    config:
+      outputsMode: combine
 jobs:
   request:
     name: Make a HTTP Request
