@@ -19,7 +19,7 @@ jobs:
         uses: kok-xiong/bitly-shortener-action@master
         with:
           bitlyToken: ${{ secrets.BITLY_TOKEN }}
-          longURL: https://github.com/${{ github.repository }}/commit/${{ github.sha }}
+          longURL: ${{on.rss.outputs.link}}
 
       - name: Send telegram message - hackernews
         uses: appleboy/telegram-action@v0.1.1
