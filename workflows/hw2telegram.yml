@@ -28,6 +28,9 @@ jobs:
 
       - name: Send telegram message - hackernews
         uses: appleboy/telegram-action@v0.1.1
+        env:
+           title: ${{on.rss.outputs.title}}
+           short: ${{steps.urlshortgen.outputs.shortURL}}
         run: |
             echo ${{on.rss.outputs.link}}
             echo ${{short}}
@@ -37,5 +40,5 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
                   Github actions output
-                  ${{on.rss.outputs.link}}
+                  ${{short}}
 
