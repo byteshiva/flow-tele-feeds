@@ -26,8 +26,7 @@ jobs:
            echo link: $link
            echo short: $short
 
-      - name: Send telegram message - hackernews
-        uses: appleboy/telegram-action@v0.1.1
+      - name: Print Output link and shortURL
         run: |
             echo RSS Output link
             echo ${{on.rss.outputs.link}}
@@ -35,10 +34,11 @@ jobs:
             echo url short gen shortURL
             echo ${{steps.urlshortgen.outputs.shortURL}}
             echo
+      - name: Send telegram message - hackernews
+        uses: appleboy/telegram-action@v0.1.1
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
                   Github actions output
                   ${{steps.urlshortgen.outputs.shortURL}}
-
