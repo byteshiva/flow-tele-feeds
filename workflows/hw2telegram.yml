@@ -31,6 +31,7 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          message:| 
-                  Github actions output 
+          message: |
+                  Github actions output
                   ${{on.rss.outputs.link}}
+
