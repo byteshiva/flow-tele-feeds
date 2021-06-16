@@ -40,5 +40,5 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-                  Github actions output
+                  Today's news :
                   ${{steps.urlshortgen.outputs.shortURL}}
