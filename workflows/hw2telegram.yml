@@ -1,7 +1,7 @@
 name: Send telegram message - hackernews site
 on:
   rss:
-    url: https://hnrss.org/newest?count=3
+    url: https://hnrss.org/newest?count=4
 jobs:
   telegram:
     name: Send telegram message - hackernews 
