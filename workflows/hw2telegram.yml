@@ -1,7 +1,7 @@
 name: Send telegram message - hackernews site
 on:
   rss:
-    url: https://hnrss.org/newest?count=4
+    url: https://hnrss.org/newest?count=5
 jobs:
   telegram:
     name: Send telegram message - hackernews 
@@ -35,8 +35,6 @@ jobs:
             echo url short gen shortURL
             echo ${{steps.urlshortgen.outputs.shortURL}}
             echo
-            echo rss output title
-            echo ${{on.rss.outputs.title}}
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
