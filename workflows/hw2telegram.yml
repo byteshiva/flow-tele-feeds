@@ -5,6 +5,7 @@ on:
       - https://hnrss.org/newest?count=5
       - https://www.buzzfeed.com/tvandmovies.xml
       - https://www.buzzfeed.com/category/celebrity.xml
+      - ${{secrets.TP_URL}}
     config:
       limit: 10
 jobs:
