@@ -1,7 +1,12 @@
 name: Send telegram message - hackernews site
 on:
   rss:
-    url: https://hnrss.org/newest?count=5
+    url: 
+      - https://hnrss.org/newest?count=5
+      - https://www.buzzfeed.com/tvandmovies.xml
+      - https://www.buzzfeed.com/category/celebrity.xml
+    config:
+      limit: 10
 jobs:
   telegram:
     name: Send telegram message - hackernews 
