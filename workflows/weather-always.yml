@@ -1,0 +1,30 @@
+Today maybe raining, temp: ${{on.weather.outputs.daily[0].temp.day}}°, ${{on.weather.outputs.daily[0].weather[0]description}}
+on:
+  weather:
+    apiKey: ${{ secrets.OPENWEATHERMAP_API_KEY }}
+    params:
+      lat: ${{ secrets.LAT_N1 }}
+      lon: ${{ secrets.LON_N1 }}
+      units: metric
+    every: "0 7 * * *"
+
+jobs:
+  print:
+    name: Print
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Outputs
+        env:
+          message: |
+            temp: ${{on.weather.outputs.daily[0].temp.day}}°, ${{on.weather.outputs.daily[0].weather[0].description}}
+        run: |
+          echo message: $message
+          
+      - name: Send telegram message - for daily weather
+        uses: appleboy/telegram-action@v0.1.1
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+                  Today's Weather ForeCast
+                  ${{on.weather.outputs.daily[0].temp.day}}°, ${{on.weather.outputs.daily[0].weather[0].description}}
