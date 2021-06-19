@@ -6,6 +6,7 @@ on:
       - https://www.buzzfeed.com/tvandmovies.xml
       - https://www.buzzfeed.com/category/celebrity.xml
       - http://rss.cnn.com/rss/edition.rss
+      - https://www.engadget.com/rss.xml
     config:
       limit: 10
 jobs:
