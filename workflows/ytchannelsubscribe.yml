@@ -1,0 +1,32 @@
+on:
+  youtube:
+    channel_id: ${{ secrets.GTSPK_CHANNEL_ID }}
+jobs:
+  print:
+    name: Print
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Outputs
+        env:
+          title: ${{on.youtube.outputs.title}}
+          description: ${{on.youtube.outputs.description}}
+          link: ${{on.youtube.outputs.link}}
+        run: |
+          echo title: $title
+          echo description: $description
+          echo link: $link
+
+      - name: Send telegram message - hackernews
+        env:
+          title: ${{on.youtube.outputs.title}}
+          description: ${{on.youtube.outputs.description}}
+          link: ${{on.youtube.outputs.link}}
+        uses: appleboy/telegram-action@v0.1.1
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+                  Today Channel Subscription: 
+                  Title : $title
+                  Description: $description
+                  link: $link
