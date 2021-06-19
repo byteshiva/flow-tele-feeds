@@ -16,17 +16,13 @@ jobs:
           echo description: $description
           echo link: $link
 
-      - name: Send telegram message - hackernews
-        env:
-          title: ${{on.youtube.outputs.title}}
-          description: ${{on.youtube.outputs.description}}
-          link: ${{on.youtube.outputs.link}}
+      - name: Send telegram yt message - hackernews
         uses: appleboy/telegram-action@v0.1.1
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-                  Today Channel Subscription: 
-                  Title : $title
-                  Description: $description
-                  link: $link
+                  Today Channel Subscription -
+                  Title - ${{on.youtube.outputs.title}}
+                  Description - ${{on.youtube.outputs.description}}
+                  link - ${{on.youtube.outputs.link}}
