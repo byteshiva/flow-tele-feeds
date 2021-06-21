@@ -6,14 +6,14 @@ on:
       password: ${{secrets.EMAIL_PASSWORD}}
 jobs:
   print:
-    name: Print
+    name: Notify Email-Subject to Telegram
     runs-on: ubuntu-latest
     steps:
-      - name: Send telegram message - hackernews
+      - name: Send telegram email message to telegram
         uses: appleboy/telegram-action@v0.1.1
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-                  You've got a Email
-                  ${{(on.email.outputs.subject)}}
+                   You've got a Email
+                   ${{(on.email.outputs.subject)}}
