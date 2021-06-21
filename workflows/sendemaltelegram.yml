@@ -14,6 +14,10 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
+          document: tests/gophercolor.png
           message: |
                    You've got a Email
-                   ${{(on.email.outputs.subject)}}
+                   ${{(on.email.outputs.subject)}} and 
+                   ${{(on.email.outputs.text)}}
+                   and details of Object :
+                   ${{(on.email.outputs)}} 
