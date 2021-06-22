@@ -1,0 +1,17 @@
+name: Send a telegram message when new dailyprogrammer subreddit
+on:
+  reddit:
+    url: https://www.reddit.com/r/dailyprogrammer/
+jobs:
+  telegram:
+    name: Send a reddit dailyprogrammer telegram message
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send a reddit dailyprogrammer telegram message
+        uses: appleboy/telegram-action@v0.0.8
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+                  Title: ${{ on.reddit.outputs.title }}
+                  Link: ${{ on.reddit.outputs.link }}
