@@ -8,7 +8,7 @@ on:
       outputsMode: combine
 jobs:
   telegram:
-    name: Send a telegram message
+    name: Send a telegram message - Daily digest reddit
     runs-on: ubuntu-latest
     steps:
       - name: Format message
@@ -27,7 +27,7 @@ jobs:
             ${titles}
             `
             return {message:message}
-      - name: Send a telegram message
+      - name: Send a telegram message - from reditt 
         uses: appleboy/telegram-action@v0.1.0
         with:
           to: ${{ secrets.TELEGRAM_TO }}
