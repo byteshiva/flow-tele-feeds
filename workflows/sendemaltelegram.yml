@@ -19,15 +19,11 @@ jobs:
                    You've got a Email
                    ${{(on.email.outputs.subject)}} and 
                    ${{(on.email.outputs.text)}}
+      - uses: actions/checkout@v2
       - name: download
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
         run: |
           sudo apt-get update
           sudo apt-get install ffmpeg zstd youtube-dl -y
-          git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-          git pull --rebase
           youtube-dl --config-location config.txt
           tar -I zstd -cf downloads.tar.zst downloads/*.m4a
       - name: Send mail via zohomail
