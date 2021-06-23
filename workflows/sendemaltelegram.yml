@@ -19,8 +19,6 @@ jobs:
                    You've got a Email
                    ${{(on.email.outputs.subject)}} and 
                    ${{(on.email.outputs.text)}}
-                   and details of Object :
-                   ${{(on.email.outputs)}}
       - name: Send mail via zohomail
         uses: dawidd6/action-send-mail@v3
         with:
@@ -33,7 +31,7 @@ jobs:
           # Optional (recommended) mail server password:
           password: ${{secrets.EMAIL_PASSWORD}}
           # Required mail subject:
-          subject: Github Actions job result
+          subject: [Robo Reply ] - Re: ${{(on.email.outputs.subject)}}
           # Required recipients' addresses:
           to:  ${{(on.email.outputs.from.value[0].address)}}
           # Required sender full name (address can be skipped):
