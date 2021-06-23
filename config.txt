@@ -1,0 +1,9 @@
+# --batch-file playlist.txt
+-f 'bestaudio[ext=m4a]' https://www.youtube.com/watch?v=rIUc4C4TXog
+# -f 'bestvideo[height>=720]+bestaudio/best' --merge-output-format mkv
+--output downloads/%(title)s_%(id)s.%(ext)s
+--continue
+
+# --write-description
+# --write-info-json
+# --write-thumbnail
