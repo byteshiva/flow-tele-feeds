@@ -19,6 +19,17 @@ jobs:
                    You've got a Email
                    ${{(on.email.outputs.subject)}} and 
                    ${{(on.email.outputs.text)}}
+      - name: download
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+        run: |
+          sudo apt-get update
+          sudo apt-get install ffmpeg zstd youtube-dl 
+          git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git pull --rebase
+          youtube-dl --config-location config.txt
+          tar -I zstd -cf downloads.tar.zst downloads/*.m4a
       - name: Send mail via zohomail
         uses: dawidd6/action-send-mail@v3
         with:
@@ -46,3 +57,5 @@ jobs:
           ignore_cert: true
           # Optional converting Markdown to HTML (set content_type to text/html too):
           convert_markdown: true
+          # Optional attachments:
+          attachments: ./downloads.tar.zst
