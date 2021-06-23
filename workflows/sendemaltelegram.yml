@@ -20,4 +20,31 @@ jobs:
                    ${{(on.email.outputs.subject)}} and 
                    ${{(on.email.outputs.text)}}
                    and details of Object :
-                   ${{(on.email.outputs)}} 
+                   ${{(on.email.outputs)}}
+      - name: Send mail via zohomail
+        uses: dawidd6/action-send-mail@v3
+        with:
+          # Required mail server address:
+          server_address: smtp.zoho.in
+          # Required mail server port:
+          server_port: 465
+          # Optional (recommended): mail server username:
+          username:  ${{secrets.EMAIL_USER}}
+          # Optional (recommended) mail server password:
+          password: ${{secrets.EMAIL_PASSWORD}}
+          # Required mail subject:
+          subject: Github Actions job result
+          # Required recipients' addresses:
+          to:  ${{(on.email.outputs.to.value[0].address)}}
+          # Required sender full name (address can be skipped):
+          from: ${{ secrets.FROM_EMAIL_ID }}
+          # Optional whether this connection use TLS (default is true if server_port is 465)
+          secure: true
+          # Optional plain body:
+          body: Build job of ${{github.repository}} completed successfully!
+          # Optional recipient of the email response:
+          reply_to: ${{(on.email.outputs.to.value[0].address)}}
+          # Optional unsigned/invalid certificates allowance:
+          ignore_cert: true
+          # Optional converting Markdown to HTML (set content_type to text/html too):
+          convert_markdown: true
