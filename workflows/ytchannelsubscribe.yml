@@ -1,6 +1,8 @@
 on:
   youtube:
-    channel_id: ${{ secrets.GTSPK_CHANNEL_ID }}
+    channel_id: 
+      - ${{ secrets.GTSPK_CHANNEL_ID }}
+      - ${{ secrets.JDMT_CHANNEL_ID }}
 jobs:
   print:
     name: Print
