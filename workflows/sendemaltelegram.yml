@@ -31,7 +31,7 @@ jobs:
           # Optional (recommended) mail server password:
           password: ${{secrets.EMAIL_PASSWORD}}
           # Required mail subject:
-          subject: [Robo Reply ] Re: ${{(on.email.outputs.subject)}}
+          subject: Re ${{(on.email.outputs.subject)}}
           # Required recipients' addresses:
           to:  ${{(on.email.outputs.from.value[0].address)}}
           # Required sender full name (address can be skipped):
@@ -39,7 +39,7 @@ jobs:
           # Optional whether this connection use TLS (default is true if server_port is 465)
           secure: true
           # Optional plain body:
-          body: We've received your email, This is Shiva's Auto Robo 
+          body: We have received your email. This is Shiva Auto Robo 
           # Optional recipient of the email response:
           reply_to: ${{ secrets.FROM_EMAIL_ID }}
           # Optional unsigned/invalid certificates allowance:
