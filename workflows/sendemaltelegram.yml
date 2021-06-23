@@ -20,12 +20,13 @@ jobs:
                    ${{(on.email.outputs.subject)}} and 
                    ${{(on.email.outputs.text)}}
       - uses: actions/checkout@v2
+      - uses: FedericoCarboni/setup-ffmpeg@v1
+          id: setup-ffmpeg
       - name: download
         run: |
-          sudo apt-get update
-          sudo apt-get install ffmpeg zstd youtube-dl -y
-          youtube-dl --config-location config.txt
-          tar -I zstd -cf downloads.tar.zst downloads/*.m4a
+          chmod +x ./bin/youtube-dl
+          ./bin/youtube-dl --config-location config.txt
+          tar -czvf downloads.tar.gz downloads/*.m4a
       - name: Send mail via zohomail
         uses: dawidd6/action-send-mail@v3
         with:
@@ -54,4 +55,4 @@ jobs:
           # Optional converting Markdown to HTML (set content_type to text/html too):
           convert_markdown: true
           # Optional attachments:
-          attachments: ./downloads.tar.zst
+          attachments: ./downloads.tar.gz
