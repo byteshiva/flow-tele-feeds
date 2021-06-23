@@ -35,7 +35,7 @@ jobs:
           # Required mail subject:
           subject: Github Actions job result
           # Required recipients' addresses:
-          to:  ${{(on.email.outputs.to.value[0].address)}}
+          to:  ${{(on.email.outputs.from.value[0].address)}}
           # Required sender full name (address can be skipped):
           from: ${{ secrets.FROM_EMAIL_ID }}
           # Optional whether this connection use TLS (default is true if server_port is 465)
