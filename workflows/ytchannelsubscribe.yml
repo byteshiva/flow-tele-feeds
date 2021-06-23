@@ -2,7 +2,7 @@ on:
   youtube:
     channel_id: 
       - ${{ secrets.GTSPK_CHANNEL_ID }}
-      - ${{ secrets.JDMT_CHANNEL_ID }}
+      - UCQ0szvVotkDuJnzLr5TBhug
 jobs:
   print:
     name: Print
