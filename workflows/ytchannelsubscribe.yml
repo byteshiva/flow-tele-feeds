@@ -1,7 +1,7 @@
 on:
   youtube:
     channel_id: 
-      - ${{ secrets.GTSPK_CHANNEL_ID }}
+      - UCjMKhr8fuwnO0mjnehbPlpA
       - UCQ0szvVotkDuJnzLr5TBhug
 jobs:
   print:
