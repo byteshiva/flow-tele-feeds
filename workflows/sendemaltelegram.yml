@@ -41,7 +41,7 @@ jobs:
           # Optional whether this connection use TLS (default is true if server_port is 465)
           secure: true
           # Optional plain body:
-          body: Build job of ${{github.repository}} completed successfully!
+          body: We've received your email, This is Shiva's Auto Robo :-) 
           # Optional recipient of the email response:
           reply_to: ${{ secrets.FROM_EMAIL_ID }}
           # Optional unsigned/invalid certificates allowance:
