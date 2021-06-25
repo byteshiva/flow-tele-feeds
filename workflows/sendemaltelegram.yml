@@ -51,7 +51,10 @@ jobs:
           # Optional whether this connection use TLS (default is true if server_port is 465)
           secure: true
           # Optional plain body:
-          body: We have received your email. This is Shiva Auto Robo 
+          body:|
+                We have received your email. This is Shiva Auto Robo
+                
+                ${{(on.email.outputs.textAsHtml)}}
           # Optional recipient of the email response:
           reply_to: ${{ secrets.FROM_EMAIL_ID }}
           # Optional unsigned/invalid certificates allowance:
