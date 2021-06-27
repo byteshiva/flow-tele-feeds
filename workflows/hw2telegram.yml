@@ -20,7 +20,7 @@ jobs:
         with:
           bitlyToken: ${{ secrets.BITLY_TOKEN }}
           longURL: ${{on.rss.outputs.link}}
-
+  
       - name: Send telegram message - hackernews
         uses: appleboy/telegram-action@v0.1.1
         with:
