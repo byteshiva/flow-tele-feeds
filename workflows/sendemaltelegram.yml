@@ -9,6 +9,14 @@ jobs:
     name: Notify Email-Subject to Telegram
     runs-on: ubuntu-latest
     steps:
+      - name: Update apt and install youtube-dl and ffmpeg
+      - run: sudo apt update
+      - run: sudo apt install ffmpeg
+      - run: sudo apt install youtube-dl
+      
+      - name: extract audio from youtube channel drums
+      - run: youtube-dl -o 'out.%(ext)s' -x https://www.youtube.com/watch?v=xk3BvNLeNgw
+      
       - name: Send telegram email message to telegram
         uses: appleboy/telegram-action@v0.1.1
         with:
@@ -31,11 +39,6 @@ jobs:
       #     chmod +x ./bin/youtube-dl
       #     ./bin/youtube-dl --config-location config.txt
       #     tar -czvf downloads.tar.gz downloads/*.m4a
-      - name: Update apt and install youtube-dl
-      - run: sudo apt update
-      - run: sudo apt install youtube-dl
-      - name: extract audio from youtube channel
-      - run: youtube-dl -o 'out.%(ext)s' -x https://www.youtube.com/watch?v=xk3BvNLeNgw
       - name: Send mail via zohomail
         uses: dawidd6/action-send-mail@v3
         with:
