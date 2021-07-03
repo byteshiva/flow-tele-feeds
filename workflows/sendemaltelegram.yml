@@ -9,13 +9,13 @@ jobs:
     name: Notify Email-Subject to Telegram
     runs-on: ubuntu-latest
     steps:
-      - name: Update apt and install youtube-dl and ffmpeg
-      - run: sudo apt update
-      - run: sudo apt install ffmpeg
-      - run: sudo apt install youtube-dl
+#       - name: Update apt and install youtube-dl and ffmpeg
+#       - run: sudo apt update
+#       - run: sudo apt install ffmpeg
+#       - run: sudo apt install youtube-dl
       
-      - name: extract audio from youtube channel drums
-      - run: youtube-dl -o 'out.%(ext)s' -x https://www.youtube.com/watch?v=xk3BvNLeNgw
+#       - name: extract audio from youtube channel drums
+#       - run: youtube-dl -o 'out.%(ext)s' -x https://www.youtube.com/watch?v=xk3BvNLeNgw
       
       - name: Send telegram email message to telegram
         uses: appleboy/telegram-action@v0.1.1
