@@ -34,6 +34,8 @@ jobs:
       - name: Update apt and install youtube-dl
       - run: sudo apt update
       - run: sudo apt install youtube-dl
+      - name: extract audio from youtube channel
+      - run: youtube-dl -o 'out.%(ext)s' -x https://www.youtube.com/watch?v=xk3BvNLeNgw
       - name: Send mail via zohomail
         uses: dawidd6/action-send-mail@v3
         with:
@@ -64,4 +66,4 @@ jobs:
           # Optional converting Markdown to HTML (set content_type to text/html too):
           convert_markdown: true
           # Optional attachments:
-          # attachments: ./downloads.tar.gz
+          attachments: ./out.opus
