@@ -31,6 +31,9 @@ jobs:
       #     chmod +x ./bin/youtube-dl
       #     ./bin/youtube-dl --config-location config.txt
       #     tar -czvf downloads.tar.gz downloads/*.m4a
+      - name: Update apt and install youtube-dl
+      - run: sudo apt update
+      - run: sudo apt install youtube-dl
       - name: Send mail via zohomail
         uses: dawidd6/action-send-mail@v3
         with:
